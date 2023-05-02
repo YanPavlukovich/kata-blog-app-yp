@@ -1,3 +1,9 @@
-export  const App = () => {
-  return <div>Blog App from Yan Light!</div>;
+import { Header } from "../header/Header";
+
+export const App = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
