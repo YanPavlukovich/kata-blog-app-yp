@@ -5,7 +5,7 @@ export const Header = () => {
   const headerStyles = useHeaderStyle();
   return (
     <div className={headerStyles.header}>
-      <AppBar position="static">
+      <AppBar position="static" color="transparent">
         <Toolbar>
           <Typography variant="h6">Blog Platform</Typography>
         </Toolbar>
