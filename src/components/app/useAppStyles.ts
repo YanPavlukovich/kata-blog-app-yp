@@ -8,7 +8,7 @@ export const useAppStyles = makeStyles<AppStyleType>(() => ({
 	body: {
 		margin:  '0',
 		padding: '0',
-		backgroundColor: '#EBEEF3',
+		backgroundColor: '#E5E5E5',
 		fontFamily: "'Inter', sans-serif",
 	}
 }));

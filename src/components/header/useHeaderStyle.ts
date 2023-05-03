@@ -6,7 +6,7 @@ type HeaderStyleType = {
 
 export const useHeaderStyle = makeStyles<HeaderStyleType>(() => ({
 	header: {
-		background: '#fff',
+		background: '#ffffff',
 		padding: '15px 22px',
 		display: 'flex',
 		justifyContent: 'space-between',
