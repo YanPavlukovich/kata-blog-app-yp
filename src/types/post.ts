@@ -1,7 +1,7 @@
 export type PostAuthorizationType = {
 	username: string;
 	image?: string;
-	following?: string;
+	following?: boolean;
 }
 
 export type PostType = {
