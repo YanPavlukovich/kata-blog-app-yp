@@ -1,10 +1,16 @@
 import { getResourse } from "../core";
-import { CreateArticleType, DeleteArticleType, GetArticlesType, UpdateArticleType } from "./articles-types";
+import { CreateArticleType, DeleteArticleType, GetArticlesType, GetArticleType, UpdateArticleType } from "./articles-types";
 
 export const getArticles: GetArticlesType = async (limit, offset, token) => {
 	const response = await getResourse(`arcticles?limit=${limit}&offset=${offset}`, {method: 'GET'}, token);
 
 	return response.data;
+};
+
+export const getArticle: GetArticleType = async (slug, token) => {
+  const response = await getResourse(`articles/${slug}`, { method: 'GET' }, token);
+
+  return response.data;
 };
 
 export const createArticle: CreateArticleType = async (data, token) => {
