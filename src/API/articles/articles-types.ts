@@ -1,6 +1,6 @@
-import { PostResponseType } from "../../types/post";
+import { PostsResponseType, PostResponseType } from "../../types/post";
 
-export type GetArticlesType = (limit: number, offset: number, token?: string) => Promise<PostResponseType>;
+export type GetArticlesType = (limit: number, offset: number, token?: string) => Promise<PostsResponseType>;
 
 export type GetArticleType = (slug: string, token?: string) => Promise<PostResponseType>;
 
