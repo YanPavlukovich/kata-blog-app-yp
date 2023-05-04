@@ -1,5 +1,6 @@
 import { UserData } from '../../API/account/account-types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../store';
 
 type UserState = UserData & {
 	isAuth: boolean;
