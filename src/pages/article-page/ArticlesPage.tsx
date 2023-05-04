@@ -14,7 +14,7 @@ const bull = (
   </Box>
 );
 
-export const ArticlePage = () => {
+export const ArticlesPage = () => {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>

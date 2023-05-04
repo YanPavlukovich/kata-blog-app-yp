@@ -1,4 +1,4 @@
-import { ArticlePage } from "../../pages/article-page/ArticlePage";
+import { ArticlesPage } from "../../pages/article-page/ArticlesPage";
 import { CreateArticlePage } from "../../pages/create-article-page/CreateArticlePage";
 import { EditArticlePage } from "../../pages/edit-article-page/EditArticlePage";
 import { EditProfilePage } from "../../pages/edit-profile-page/EditProfilePage";
@@ -15,7 +15,7 @@ export const App = () => {
     <div className={appStyles.body}>
       <Header />
       <ListArticlesPage />
-      <ArticlePage />
+      <ArticlesPage />
       <SignUpPage />
       <SignInPage />
       <EditProfilePage />
