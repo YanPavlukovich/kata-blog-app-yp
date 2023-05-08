@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-type HeaderStyleType = {
+type HeaderStylesType = {
 	header: React.CSSProperties;
 }
 
-export const useHeaderStyle = makeStyles<HeaderStyleType>(() => ({
+export const useHeaderStyles = makeStyles<HeaderStylesType>(() => ({
 	header: {
 		background: '#ffffff',
 		padding: '15px 22px',

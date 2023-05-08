@@ -1,8 +1,8 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { useHeaderStyle } from "./useHeaderStyle";
+import { useHeaderStyles } from "./useHeaderStyles";
 
 export const Header = () => {
-  const headerStyles = useHeaderStyle();
+  const headerStyles = useHeaderStyles();
   return (
     <div className={headerStyles.header}>
       <AppBar position="static" color="transparent">
