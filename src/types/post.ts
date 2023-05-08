@@ -9,9 +9,9 @@ export type PostType = {
 	title: string;
 	description: string;
 	body: string;
-	createAt: string;
+	createdAt: string;
 	updateAt: string;
-	taglist: string[];
+	tagList: string[];
 	favorited: boolean;
 	favoritesCount: number;
 	author: PostAuthorizationType;

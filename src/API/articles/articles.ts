@@ -1,20 +1,20 @@
-import { getResourse } from "../core";
+import { getResource } from "../core";
 import { CreateArticleType, DeleteArticleType, GetArticlesType, GetArticleType, UpdateArticleType } from "./articles-types";
 
 export const getArticles: GetArticlesType = async (limit, offset, token) => {
-	const response = await getResourse(`arcticles?limit=${limit}&offset=${offset}`, {method: 'GET'}, token);
+	const response = await getResource(`articles?limit=${limit}&offset=${offset}`, {method: 'GET'}, token);
 
 	return response.data;
 };
 
 export const getArticle: GetArticleType = async (slug, token) => {
-  const response = await getResourse(`articles/${slug}`, { method: 'GET' }, token);
+  const response = await getResource(`articles/${slug}`, { method: 'GET' }, token);
 
   return response.data;
 };
 
 export const createArticle: CreateArticleType = async (data, token) => {
-	const response = await getResourse(
+	const response = await getResource(
 		`arcticles/`,
 		{
 			method: 'POST',
@@ -29,7 +29,7 @@ export const createArticle: CreateArticleType = async (data, token) => {
 };
 
 export const deleteArticle: DeleteArticleType = async (slug, token) => {
-	return await getResourse(
+	return await getResource(
 		`arcticles/${slug}`,
 		{
 			method: 'DELETE',
@@ -39,7 +39,7 @@ export const deleteArticle: DeleteArticleType = async (slug, token) => {
 };
 
 export const updateArticle: UpdateArticleType = async (slug, token, data) => {
-	const response = await getResourse(
+	const response = await getResource(
 		`arcticles/${slug}`,
 		{
 			method: 'PUT',

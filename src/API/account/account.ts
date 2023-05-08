@@ -1,9 +1,9 @@
-import { getResourse } from "../core";
+import { getResource } from "../core";
 import { RegisterUser, UpdateUser } from "./account-types";
 
 export const signUpUser: RegisterUser = async (props) => {
 	try {
-		const response = await getResourse('users', {
+		const response = await getResource('users', {
 			method: 'POST',
 			data: {
 				user: props,
@@ -28,7 +28,7 @@ export const signUpUser: RegisterUser = async (props) => {
 
 export const signInUser = async (email: string, password: string) => {
 	try {
-		const response = await getResourse('users/login', {
+		const response = await getResource('users/login', {
 			method: 'POST',
 			data: {
 				user: {
@@ -54,7 +54,7 @@ export const signInUser = async (email: string, password: string) => {
 
 export const uptateUser: UpdateUser = async (newValues, token) => {
 	try {
-		const response = await getResourse(
+		const response = await getResource(
 			'user',
 			{
 				method: 'PUT',
