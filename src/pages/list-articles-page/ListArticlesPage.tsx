@@ -1,29 +1,45 @@
-import { List, ListItem, ListItemText } from "@material-ui/core";
-import Pagination from "@mui/material/Pagination";
-import { useListStyles } from "./useListStyles";
+import { useListArticlesPageStyles } from "./useListArticlesPageStyles";
+import { Post } from "../../components/post/Post";
+import { Pagination } from "@mui/material";
+import { useArticlesGetter } from "../../API/articles/articles-hooks";
+import { useAppDispatch, useAppSelector } from "../../store/store-hooks";
+import {
+  selectActivePage,
+  selectArticlesCount,
+  selectPageSize,
+  setActivePage,
+} from "../../store/slices/articles-slice";
+import { ChangeEvent } from "react";
 
 export const ListArticlesPage = () => {
-  const listStyles = useListStyles();
+  const listStyle = useListArticlesPageStyles();
+  const posts = useArticlesGetter();
+
+  const dispatch = useAppDispatch();
+  const postsCount = useAppSelector(selectArticlesCount);
+  const activePage = useAppSelector(selectActivePage);
+  const pageSize = useAppSelector(selectPageSize);
+
+  const postsElements = posts.map((post) => (
+    <Post key={`slug_${post.slug}`} {...post} />
+  ));
+
+  const onPageChange = (event: ChangeEvent<unknown>, page: number) => {
+    dispatch(setActivePage(page));
+  };
+
   return (
-    <div>
-      <List className={listStyles.posts}>
-        <ListItem>
-          <ListItemText primary="Article 1" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Article 2" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Article 3" />
-        </ListItem>
-      </List>
-      <Pagination
-        className={listStyles.pagination}
-        count={10}
-        shape="rounded"
-      />
-    </div>
+    <>
+      <div className={listStyle.posts}>{postsElements}</div>
+      <div className={listStyle.pagination}>
+        <Pagination
+          count={Math.ceil(postsCount / pageSize)}
+          page={activePage}
+          onChange={onPageChange}
+          showFirstButton
+          showLastButton
+        />
+      </div>
+    </>
   );
 };
-
-// style={{ display: "flex", flexDirection: "column", gap: 25 }}
