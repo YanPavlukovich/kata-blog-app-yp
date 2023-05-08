@@ -4,8 +4,8 @@ import { useHomeButtonStyles } from "./useHomeButtonStyles";
 export const HomeButton = () => {
   const homeButtonStyle = useHomeButtonStyles();
   return (
-    <div className={homeButtonStyle.homeBtn}>
-      <Link to={"/"}>Realworld Blog</Link>
-    </div>
+    <Link className={homeButtonStyle.homeBtn} to={"/"}>
+      Realworld Blog
+    </Link>
   );
 };

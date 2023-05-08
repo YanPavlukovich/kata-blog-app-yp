@@ -1,4 +1,4 @@
-import { ArticleTitle } from "../../../typography/article-title";
+import { ArticleTitle } from "../../../typography/article-title/ArticleTitle";
 import { Like, LikeProps } from "../../like/Like";
 import { usePostHeaderStyles } from "./usePostHeaderStyles";
 
