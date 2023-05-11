@@ -7,6 +7,7 @@ import { ProtectRoute } from "../protect-route/ProtectRote";
 import { useAppSelector } from "../../store/store-hooks";
 import { selectIsAuth } from "../../store/slices/user-slice";
 import { SignInPage } from "../../pages/sign-in-page/SignInPage";
+import { ProfilePage } from "../../pages/edit-profile-page/ProfilePage";
 
 export const App = () => {
   const isAuth = useAppSelector(selectIsAuth);
@@ -17,6 +18,14 @@ export const App = () => {
         <Route index element={<ListArticlesPage />} />
         <Route path={"/articles"} element={<ListArticlesPage />} />
         <Route path={"articles/:id"} element={<ArticlePage />} />
+        <Route
+          path={"profile"}
+          element={
+            <ProtectRoute isAllowed={isAuth} redirectPath={"/sign-in"}>
+              <ProfilePage />
+            </ProtectRoute>
+          }
+        />
         <Route
           path={"sign-in"}
           element={
