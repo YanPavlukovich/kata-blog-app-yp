@@ -9,5 +9,6 @@ export const useLayoutStyles = makeStyles<LayoutStylesType>(() => ({
 		width: '938px',
 		margin: '0 auto',
 		paddingTop: '26px',
+		height: '780px'
 	},
 }));

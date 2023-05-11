@@ -48,7 +48,7 @@ export const PostCard = (props: Props) => {
         slug={slug}
       />
       <div className={postCardStyle.postDescription}>
-        <Typography paragraph>{description}</Typography>
+        <Typography sx={{ fontSize: 12 }}>{description}</Typography>
         {postControl && (
           <div className={postCardStyle.postButtons}>
             <Button size="small" color="error" onClick={handlePopoverOpen}>

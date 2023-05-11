@@ -11,6 +11,7 @@ export const usePostCardStyles = makeStyles<PostCardStylesType>(() => ({
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
+		color: 'rgba(0, 0, 0, 0.5)'
 	},
 
 	postButtons: {

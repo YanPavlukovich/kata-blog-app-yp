@@ -13,15 +13,12 @@ type ProfileStylesType = {
 export const useProfileStyles = makeStyles<ProfileStylesType>(() => ({
 	wrapper: {
 		display: 'flex',
-		alignItems: 'center',
+		alignItems: 'flex-start',
 		gap: '12px',
 	},
 
 	a: {
 		textDecoration: 'none',
-		'&:hover': {
-			textDecoration: 'underline',
-		}
 	}
 }));
 
@@ -34,6 +31,7 @@ export const useProfileInfoStyles = makeStyles<ProfileStylesType>(() => ({
 		fontSize: '18px',
 		lineHeight: '28px',
 		color: 'rgba(0, 0, 0, 0.85)',
+		margin: 'auto',
 	},
 
 	profileInfoSubtitle: {

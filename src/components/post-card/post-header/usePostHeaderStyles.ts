@@ -12,12 +12,14 @@ export const usePostHeaderStyles = makeStyles<PostHeaderStylesType>(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+		height: '60px'
   },
 
   titleWrapper: {
     display: 'flex',
     alignItems: 'center',
     gap: '12px',
+		wordWrap: 'break-word',
   },
 
   tagList: {
