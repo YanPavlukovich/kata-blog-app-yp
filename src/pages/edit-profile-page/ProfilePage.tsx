@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import {
   FieldType,
@@ -53,6 +54,7 @@ const formFields: FieldType[] = [
 
 export const ProfilePage = () => {
   const profilePageStyle = useProfilePageStyles();
+  const history = useNavigate();
   const dispatch = useAppDispatch();
   const userData = useAppSelector(selectUserData);
   const token = useAppSelector(selectToken);
@@ -106,7 +108,11 @@ export const ProfilePage = () => {
           <Alert severity="success">
             <strong>Success</strong> - Data updated successfully
           </Alert>
-          <Button variant="contained" color="primary">
+          <Button
+            onClick={() => history("/articles")}
+            variant="contained"
+            color="primary"
+          >
             Submit
           </Button>
         </div>
