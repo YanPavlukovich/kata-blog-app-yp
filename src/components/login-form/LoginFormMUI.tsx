@@ -7,8 +7,9 @@ import {
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import { ObjectSchema, Maybe, AnyObject } from "yup";
-import { Input } from "../input/Input";
+import { Box, Button, FormControlLabel, Typography } from "@material-ui/core";
 import { Checkbox } from "../checkbox/Checkbox";
+import { Input } from "../input/Input";
 import { useLoginFormStyles } from "./useLoginFormStyles";
 
 export type FieldType = {
@@ -32,8 +33,8 @@ type Props<T extends Maybe<AnyObject>> = {
   mode?: keyof ValidationMode;
 };
 
-export const LoginForm = <T extends FieldValues>(props: Props<T>) => {
-	const loginFormStyle = useLoginFormStyles();
+export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
+  const loginFormStyle = useLoginFormStyles();
   const {
     submitHandler,
     title,
@@ -83,23 +84,42 @@ export const LoginForm = <T extends FieldValues>(props: Props<T>) => {
   });
 
   return (
-    <div className={loginFormStyle.root}>
-      <h2 className={loginFormStyle.formTitle}>{title}</h2>
-      <form onSubmit={handleSubmit(submitHandler)}>
+    <Box className={loginFormStyle.root}>
+      <Typography
+        className={loginFormStyle.formTitle}
+        variant="h2"
+        gutterBottom
+      >
+        {title}
+      </Typography>
+      <form
+        className={loginFormStyle.formSubmit}
+        onSubmit={handleSubmit(submitHandler)}
+      >
         {fields}
         {needDataAgree && (
-          <Checkbox
-            label={"I agree to the processing of my personal information"}
-            register={register}
-            error={(errors.personal?.message || null) as string}
-            name={"personal"}
+          <FormControlLabel
+            control={
+              <Checkbox
+                label="I agree to the processing of my personal information"
+                register={register}
+                error={(errors.personal?.message || null) as string}
+                name={"personal"}
+              />
+            }
+            label=""
+            onError={() => !!(errors.personal?.message || null)}
           />
         )}
-        <button type={"submit"} className={loginFormStyle.formSubmit}>
+        <Button type="submit" variant="contained" color="primary">
           {buttonText}
-        </button>
+        </Button>
       </form>
-      <p className={loginFormStyle.helpText}>{helpText ? helpText : null}</p>
-    </div>
+      {helpText && (
+        <Typography variant="body2" className="help-text">
+          {helpText}
+        </Typography>
+      )}
+    </Box>
   );
 };
