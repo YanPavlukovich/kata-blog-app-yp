@@ -53,7 +53,7 @@ export const signInUser = async (email: string, password: string) => {
 	}
 };
 
-export const uptateUser: UpdateUser = async (newValues, token) => {
+export const updateUser: UpdateUser = async (newValues, token) => {
 	try {
 		const response = await getResource(
 			'user',
