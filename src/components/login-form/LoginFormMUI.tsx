@@ -35,6 +35,7 @@ type Props<T extends Maybe<AnyObject>> = {
 
 export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
   const loginFormStyle = useLoginFormStyles();
+
   const {
     submitHandler,
     title,
@@ -47,6 +48,7 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
     defaultValues,
     mode,
   } = props;
+
   const {
     register,
     handleSubmit,
