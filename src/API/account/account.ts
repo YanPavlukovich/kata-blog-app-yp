@@ -49,6 +49,7 @@ export const signInUser = async (email: string, password: string) => {
 				data: e.response.data,
 			};
 		}
+		throw new Error('cant login');
 	}
 };
 
