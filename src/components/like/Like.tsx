@@ -6,6 +6,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { useFavorited } from "../../API/favorited/favorited-hooks";
 import { useAppSelector } from "../../store/store-hooks";
 import { selectIsAuth } from "../../store/slices/user-slice";
+import { useLikeStyles } from "./useLikeStyles";
 
 export type LikeProps = {
   favorited: boolean;
@@ -14,6 +15,7 @@ export type LikeProps = {
 };
 
 export const Like = (props: LikeProps) => {
+  const likeStyle = useLikeStyles();
   const { favorited, favoritesCount, slug } = props;
 
   const isAuth = useAppSelector(selectIsAuth);
@@ -42,9 +44,17 @@ export const Like = (props: LikeProps) => {
   };
 
   return (
-    <IconButton onClick={likeHandler} color="secondary">
-      {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-      <span>{count}</span>
+    <IconButton
+      className={likeStyle.iconButton}
+      onClick={likeHandler}
+      color="secondary"
+    >
+      {liked ? (
+        <FavoriteIcon fontSize="small" />
+      ) : (
+        <FavoriteBorderIcon color="disabled" fontSize="small" />
+      )}
+      <span className={likeStyle.span}>{count}</span>
     </IconButton>
   );
 };
