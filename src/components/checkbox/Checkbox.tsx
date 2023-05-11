@@ -19,10 +19,14 @@ export const Checkbox = (props: Props) => {
   return (
     <div className={checkboxStyle.root}>
       <FormControlLabel
-				control={<MUICheckbox {...register(name)} />}
+        control={<MUICheckbox color="primary" {...register(name)} />}
         label={
           label ? (
-            <Typography variant="body1" color="textPrimary">
+            <Typography
+              className={checkboxStyle.typography}
+              variant="body1"
+              color="textPrimary"
+            >
               {label}
             </Typography>
           ) : null

@@ -21,6 +21,7 @@ export const Input = (props: Props) => {
 
   return (
     <TextField
+      size="small"
       style={{ width: "100%", marginTop: "15px" }}
       label={label}
       placeholder={placeholder || label || null}

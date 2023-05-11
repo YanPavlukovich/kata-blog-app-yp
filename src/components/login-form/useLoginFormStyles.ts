@@ -19,7 +19,7 @@ export const useLoginFormStyles = makeStyles<LoginFormStylesType>(() =>
 
 		formTitle: {
 			margin: '0 0 21px',
-			fontWeight: 500,
+			fontWeight: 600,
 			fontSize: '20px',
 			lineHeight: '28px',
 			textAlign: 'center',
@@ -45,11 +45,17 @@ export const useLoginFormStyles = makeStyles<LoginFormStylesType>(() =>
 			lineHeight: '20px',
 			textAlign: 'center',
 			margin: '8px 0 0',
-			color: '#8C8C8C',
+			color: 'rgba(140, 140, 140, 1)',
+			"& a": {
+				color: '#1890FF',
+				textDecoration:	'none',
+			}
 		},
 
-		a: {
-			color: '#1890FF'
+		buttonSubmit: {
+			width: '100%',
+			textTransform: 'none',
+			fontSize: '16px',
 		}
 	})
 );

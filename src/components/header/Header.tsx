@@ -18,7 +18,7 @@ export const Header = () => {
   const dispatch = useAppDispatch();
 
   const onLogout = () => {
-    dispatch(removeUserData);
+    dispatch(removeUserData());
   };
   return (
     <>

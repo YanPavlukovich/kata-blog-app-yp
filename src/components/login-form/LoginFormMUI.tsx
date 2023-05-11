@@ -85,11 +85,7 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
 
   return (
     <Box className={loginFormStyle.root}>
-      <Typography
-        className={loginFormStyle.formTitle}
-        variant="h2"
-        gutterBottom
-      >
+      <Typography className={loginFormStyle.formTitle} gutterBottom>
         {title}
       </Typography>
       <form
@@ -99,6 +95,7 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
         {fields}
         {needDataAgree && (
           <FormControlLabel
+            style={{ width: "110%" }}
             control={
               <Checkbox
                 label="I agree to the processing of my personal information"
@@ -111,12 +108,17 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
             onError={() => !!(errors.personal?.message || null)}
           />
         )}
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={loginFormStyle.buttonSubmit}
+        >
           {buttonText}
         </Button>
       </form>
       {helpText && (
-        <Typography variant="body2" className="help-text">
+        <Typography variant="body2" className={loginFormStyle.helpText}>
           {helpText}
         </Typography>
       )}
