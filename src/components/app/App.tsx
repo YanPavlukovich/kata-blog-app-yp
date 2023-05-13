@@ -10,6 +10,7 @@ import { SignInPage } from "../../pages/sign-in-page/SignInPage";
 import { ProfilePage } from "../../pages/edit-profile-page/ProfilePage";
 import { CreateArticlePage } from "../../pages/create-article-page/CreateArticlePage";
 import { useAppStyles } from "./useAppStyles";
+import { EditArticlePage } from "../../pages/edit-article-page/EditArticlePage";
 
 export const App = () => {
   const isAuth = useAppSelector(selectIsAuth);
@@ -19,9 +20,17 @@ export const App = () => {
     <div className={appStyle.root}>
       <Routes>
         <Route path={"/"} element={<Layout />}>
-          <Route index element={<ListArticlesPage />} />
-          <Route path={"/articles"} element={<ListArticlesPage />} />
-          <Route path={"articles/:id"} element={<ArticlePage />} />
+          <Route index element={<ListArticlesPage />}></Route>
+          <Route path={"articles/"} element={<ListArticlesPage />}></Route>
+          <Route path={"articles/:id"} element={<ArticlePage />}></Route>
+          <Route
+            path={"articles/:id/edit"}
+            element={
+              <ProtectRoute isAllowed={isAuth} redirectPath={"/sign-in"}>
+                <EditArticlePage />
+              </ProtectRoute>
+            }
+          />
           <Route
             path={"new-article"}
             element={
