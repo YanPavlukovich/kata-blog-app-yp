@@ -77,7 +77,7 @@ export const PostCard = (props: Props) => {
             </Popover>
             <Button
               component={Link}
-              to={"/edit"}
+              to={"edit"}
               variant="contained"
               color="success"
               size="small"
