@@ -20,16 +20,18 @@ export const Input = (props: Props) => {
   }, [error]);
 
   return (
-    <TextField
-      size="small"
-      style={{ width: "100%", marginTop: "15px" }}
-      label={label}
-      placeholder={placeholder || label || null}
-      variant="outlined"
-      error={!!error}
-      helperText={errorStr}
-      multiline={type === "textarea"}
-      {...register(name)}
-    />
+    <div>
+      <TextField
+        size={name !== "text" ? "small" : "middle"}
+        style={{ width: "100%", marginTop: "15px" }}
+        label={label}
+        placeholder={placeholder || label || null}
+        variant="outlined"
+        error={!!error}
+        helperText={errorStr}
+        multiline={type === "textarea"}
+        {...register(name)}
+      />
+    </div>
   );
 };
