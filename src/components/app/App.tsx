@@ -8,41 +8,54 @@ import { useAppSelector } from "../../store/store-hooks";
 import { selectIsAuth } from "../../store/slices/user-slice";
 import { SignInPage } from "../../pages/sign-in-page/SignInPage";
 import { ProfilePage } from "../../pages/edit-profile-page/ProfilePage";
+import { CreateArticlePage } from "../../pages/create-article-page/CreateArticlePage";
+import { useAppStyles } from "./useAppStyles";
 
 export const App = () => {
   const isAuth = useAppSelector(selectIsAuth);
+  const appStyle = useAppStyles();
 
   return (
-    <Routes>
-      <Route path={"/"} element={<Layout />}>
-        <Route index element={<ListArticlesPage />} />
-        <Route path={"/articles"} element={<ListArticlesPage />} />
-        <Route path={"articles/:id"} element={<ArticlePage />} />
-        <Route
-          path={"profile"}
-          element={
-            <ProtectRoute isAllowed={isAuth} redirectPath={"/sign-in"}>
-              <ProfilePage />
-            </ProtectRoute>
-          }
-        />
-        <Route
-          path={"sign-in"}
-          element={
-            <ProtectRoute isAllowed={!isAuth} redirectPath={"/"}>
-              <SignInPage />
-            </ProtectRoute>
-          }
-        />
-        <Route
-          path={"sign-up"}
-          element={
-            <ProtectRoute isAllowed={!isAuth} redirectPath={"/"}>
-              <SignUpPage />
-            </ProtectRoute>
-          }
-        />
-      </Route>
-    </Routes>
+    <div className={appStyle.root}>
+      <Routes>
+        <Route path={"/"} element={<Layout />}>
+          <Route index element={<ListArticlesPage />} />
+          <Route path={"/articles"} element={<ListArticlesPage />} />
+          <Route path={"articles/:id"} element={<ArticlePage />} />
+          <Route
+            path={"new-article"}
+            element={
+              <ProtectRoute isAllowed={isAuth} redirectPath={"/sign-in"}>
+                <CreateArticlePage />
+              </ProtectRoute>
+            }
+          />
+          <Route
+            path={"profile"}
+            element={
+              <ProtectRoute isAllowed={isAuth} redirectPath={"/sign-in"}>
+                <ProfilePage />
+              </ProtectRoute>
+            }
+          />
+          <Route
+            path={"sign-in"}
+            element={
+              <ProtectRoute isAllowed={!isAuth} redirectPath={"/"}>
+                <SignInPage />
+              </ProtectRoute>
+            }
+          />
+          <Route
+            path={"sign-up"}
+            element={
+              <ProtectRoute isAllowed={!isAuth} redirectPath={"/"}>
+                <SignUpPage />
+              </ProtectRoute>
+            }
+          />
+        </Route>
+      </Routes>
+    </div>
   );
 };
