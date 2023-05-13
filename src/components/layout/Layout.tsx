@@ -4,6 +4,7 @@ import { useLayoutStyles } from "./useLayoutStyles";
 
 export const Layout = () => {
   const layoutStyle = useLayoutStyles();
+
   return (
     <>
       <Header />
