@@ -15,7 +15,7 @@ export const getArticle: GetArticleType = async (slug, token) => {
 
 export const createArticle: CreateArticleType = async (data, token) => {
 	const response = await getResource(
-		`arcticles/`,
+		`articles/`,
 		{
 			method: 'POST',
 			data: {
@@ -30,7 +30,7 @@ export const createArticle: CreateArticleType = async (data, token) => {
 
 export const deleteArticle: DeleteArticleType = async (slug, token) => {
 	return await getResource(
-		`arcticles/${slug}`,
+		`articles/${slug}`,
 		{
 			method: 'DELETE',
 		},
@@ -40,7 +40,7 @@ export const deleteArticle: DeleteArticleType = async (slug, token) => {
 
 export const updateArticle: UpdateArticleType = async (slug, token, data) => {
 	const response = await getResource(
-		`arcticles/${slug}`,
+		`articles/${slug}`,
 		{
 			method: 'PUT',
 			data: {article: data},
