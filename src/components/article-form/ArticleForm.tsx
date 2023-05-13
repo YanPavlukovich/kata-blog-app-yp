@@ -27,11 +27,14 @@ export const ArticleForm = (props: Props) => {
     setError,
     control,
     reset,
+    watch,
   } = useForm<FormValues>({
     mode: "onChange",
     resolver: yupResolver(articleFormValidation),
     defaultValues,
   });
+
+  const watchedValues = watch();
 
   useEffect(() => {
     if (propErrors) {
@@ -56,19 +59,19 @@ export const ArticleForm = (props: Props) => {
         <Input
           name={"articleTitle"}
           register={register}
-          label={"Title"}
+          label={watchedValues.articleTitle ? "" : "Title"}
           error={errors.articleTitle?.message as string}
         />
         <Input
           name={"description"}
           register={register}
-          label={"Short description"}
+          label={watchedValues.description ? "" : "Short description"}
           error={errors.description?.message as string}
         />
         <Input
           name={"text"}
           register={register}
-          label={"Text"}
+          label={watchedValues.text ? "" : "Text"}
           type={"textarea"}
           error={errors.text?.message as string}
         />
